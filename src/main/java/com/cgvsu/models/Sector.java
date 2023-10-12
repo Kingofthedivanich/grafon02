@@ -12,15 +12,22 @@ public class Sector implements Drawable {
 
     private List<Point> points  = new ArrayList<>();
 
+    public Sector(int center_x, int center_y, // center of circle (x,y)
+                  int sectstartx, int sectstarty, // start point of sector
+                  int sectendx, int sectendy, // end point of sector
+                  int radius // radius
+    ) {
+        points = getSector(center_x, center_y, sectstartx, sectstarty, sectendx, sectendy, radius);
+    }
+
     @Override
     public void draw(GraphicsContext gc, List<Point> p) {
         Drawable.super.draw(gc, p);
     }
 
     public void draw(GraphicsContext gc){
-        PixelWriter px = gc.getPixelWriter();
         for(Point p1:points){
-            px.setColor(p1.getX(), p1.getY(), p1.getC0());
+            p1.draw(gc);
         }
     }
 

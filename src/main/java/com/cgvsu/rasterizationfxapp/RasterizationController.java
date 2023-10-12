@@ -1,5 +1,7 @@
 package com.cgvsu.rasterizationfxapp;
 
+import com.cgvsu.Drawable;
+import com.cgvsu.models.Sector;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -7,6 +9,8 @@ import javafx.scene.layout.AnchorPane;
 
 import com.cgvsu.rasterization.*;
 import javafx.scene.paint.Color;
+
+import java.util.ArrayList;
 
 public class RasterizationController {
 
@@ -28,8 +32,12 @@ public class RasterizationController {
 //        Rasterization.drawPoint(canvas.getGraphicsContext2D(), 100, 99, Color.CHOCOLATE);
 //        Rasterization.drawPoint(canvas.getGraphicsContext2D(), 99, 99, Color.CHOCOLATE);
 
-        Rasterization.draw(canvas.getGraphicsContext2D(),
-                Rasterization.drawSector(300, 300, 100, 600, 500, 500, 200));
+        ArrayList<Drawable> d = new ArrayList<>();
+        d.add(new Sector(300, 300, 100, 600, 500, 500, 200));
+
+        for(Drawable d1:d){
+            d1.draw(canvas.getGraphicsContext2D());
+        }
 
 
 

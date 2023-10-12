@@ -14,4 +14,6 @@ public interface Drawable {
             px.setColor(p1.getX(), p1.getY(), p1.getC0());
         }
     };
+
+    public void draw(final GraphicsContext gc);
 }
