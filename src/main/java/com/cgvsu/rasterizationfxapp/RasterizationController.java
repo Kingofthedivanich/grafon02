@@ -1,8 +1,7 @@
 package com.cgvsu.rasterizationfxapp;
 
-import com.cgvsu.Interface.Drawable;
 import com.cgvsu.Interface.Object;
-import com.cgvsu.interpolation.Interpolation;
+import com.cgvsu.interpolation.RadialInterpolation;
 import com.cgvsu.models.Pixel;
 import com.cgvsu.models.Point;
 import com.cgvsu.models.Sector;
@@ -40,7 +39,7 @@ public class RasterizationController {
 
         for (Object o:d){
             List<Point> p= o.getPoints();
-            ArrayList<Pixel> pix = Interpolation.getRadialInterpolation(p, 300, 300, 200, Color.AQUA, Color.CRIMSON);
+            List<Pixel> pix = new RadialInterpolation(300, 300, 200, Color.AQUA, Color.CRIMSON).getInterpolation(p);
             for(Pixel p1:pix){
                 p1.draw(canvas.getGraphicsContext2D());
             }

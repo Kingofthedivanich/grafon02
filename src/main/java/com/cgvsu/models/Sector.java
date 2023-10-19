@@ -33,6 +33,7 @@ public class Sector implements Object {
 
         points = getPoints();
     }
+    @Override
     public void draw(GraphicsContext gc){
         for(Point c1: points){
             new Pixel(c1, Color.BLACK).draw(gc);
