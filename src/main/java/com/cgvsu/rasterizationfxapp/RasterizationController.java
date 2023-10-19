@@ -1,16 +1,18 @@
 package com.cgvsu.rasterizationfxapp;
 
-import com.cgvsu.Drawable;
+import com.cgvsu.Interface.Drawable;
+import com.cgvsu.Interface.Object;
+import com.cgvsu.interpolation.Interpolation;
+import com.cgvsu.models.Pixel;
+import com.cgvsu.models.Point;
 import com.cgvsu.models.Sector;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.AnchorPane;
-
-import com.cgvsu.rasterization.*;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RasterizationController {
 
@@ -32,12 +34,20 @@ public class RasterizationController {
 //        Rasterization.drawPoint(canvas.getGraphicsContext2D(), 100, 99, Color.CHOCOLATE);
 //        Rasterization.drawPoint(canvas.getGraphicsContext2D(), 99, 99, Color.CHOCOLATE);
 
-        ArrayList<Drawable> d = new ArrayList<>();
+        ArrayList<Object> d = new ArrayList<>();
         d.add(new Sector(300, 300, 100, 600, 500, 500, 200));
+        d.add(new Sector(500, 500, 100, 600, 500, 500, 200));
 
-        for(Drawable d1:d){
-            d1.draw(canvas.getGraphicsContext2D());
+        for (Object o:d){
+            List<Point> p= o.getPoints();
+            ArrayList<Pixel> pix = Interpolation.getRadialInterpolation(p, 300, 300, 200, Color.AQUA, Color.CRIMSON);
+            for(Pixel p1:pix){
+                p1.draw(canvas.getGraphicsContext2D());
+            }
         }
+
+
+
 
 
 

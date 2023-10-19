@@ -1,12 +1,8 @@
 package com.cgvsu.rasterization;
 
-import com.cgvsu.models.Point;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.paint.Color;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Rasterization {
     public static void drawCircle(
