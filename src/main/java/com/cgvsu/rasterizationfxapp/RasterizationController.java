@@ -2,9 +2,9 @@ package com.cgvsu.rasterizationfxapp;
 
 import com.cgvsu.Interface.Object;
 import com.cgvsu.interpolation.RadialInterpolation;
+import com.cgvsu.models.Ellipse;
 import com.cgvsu.models.Pixel;
 import com.cgvsu.models.Point;
-import com.cgvsu.models.Sector;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.AnchorPane;
@@ -34,8 +34,8 @@ public class RasterizationController {
 //        Rasterization.drawPoint(canvas.getGraphicsContext2D(), 99, 99, Color.CHOCOLATE);
 
         ArrayList<Object> d = new ArrayList<>();
-        d.add(new Sector(300, 300, 100, 600, 500, 500, 200));
-        d.add(new Sector(500, 500, 100, 600, 500, 500, 200));
+        d.add(new Ellipse(300, 300, 200, 100));
+
 
         for (Object o:d){
             List<Point> p= o.getPoints();

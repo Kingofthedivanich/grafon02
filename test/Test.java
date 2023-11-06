@@ -1,6 +1,5 @@
 import com.cgvsu.interpolation.RadialInterpolation;
 import com.cgvsu.models.Point;
-import com.cgvsu.models.Sector;
 import javafx.scene.paint.Color;
 
 import java.util.List;
